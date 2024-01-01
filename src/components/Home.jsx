@@ -31,6 +31,8 @@ const Home = () => {
                 setData({...data, celcius: res.data.main.temp, name: res.data.name, humidity: res.data.main.humidity, speed: res.data.wind.speed })
             })
             .catch( err => console.log(err));
+        }else {
+            alert('empty search')
         }
     }
 
