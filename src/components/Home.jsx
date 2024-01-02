@@ -13,7 +13,7 @@ const Home = () => {
         name:'City Name',
         humidity: 10,
         speed: 2,
-        image: <FontAwesomeIcon icon="cloud" size="8x" className="icon" />,
+        image: <FontAwesomeIcon icon="cloud" size="8x" color="lightgray" className="icon" />,
     })
 
     const [name, setName] = useState('');
@@ -51,17 +51,17 @@ const Home = () => {
                 // }
 
                 if(res.data.weather[0].main == "Clouds") {
-                    imagePath = <FontAwesomeIcon icon={faCloud} size="8x" style={{ color: 'white' }}  className="icon" />;
+                    imagePath = <FontAwesomeIcon icon={faCloud} size="8x" style={{ color: 'lightgray' }}  className="icon" />;
                 } else if (res.data.weather[0].main == "Clear") {
-                    imagePath = <FontAwesomeIcon icon={faCloudSun} size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon={faCloudSun} size="8x" color="lightgray" className="icon" />;
                 } else if (res.data.weather[0].main == "Rain") {
-                    imagePath = <FontAwesomeIcon icon="fa-solid fa-cloud-rain" size="8x" style={{ color: 'black' }} className="icon" />;
+                    imagePath = <FontAwesomeIcon icon="fa-solid fa-cloud-rain" size="8x" style={{ color: 'lightgray' }} className="icon" />;
                 } else if (res.data.weather[0].main == "Drizzle") {
-                    imagePath = <FontAwesomeIcon icon={faCloudShowersWater} size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon={faCloudShowersWater} size="8x" color="lightgray" className="icon" />;
                 } else if (res.data.weather[0].main == "Mist") {
-                    imagePath = <FontAwesomeIcon icon={faCloudBolt} size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon={faCloudBolt} size="8x" color="lightgray" className="icon" />;
                 } else {
-                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" color="lightgray" className="icon" />;
                 }
 
                 setData({...data, 
