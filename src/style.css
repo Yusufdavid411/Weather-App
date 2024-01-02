@@ -10,7 +10,7 @@
 }
 
 .weather {
-    width: 80%;
+    width: 70%;
     max-width: 500px;
     padding: 30px;
     border-radius: 10px;
@@ -38,7 +38,7 @@
     flex: 1;
     margin-right: 12px;
     width: 15%;
-    max-width: 250px;
+    max-width: 350px;
 }
 
 .search button {
@@ -50,25 +50,25 @@
     cursor: pointer;
 }
 
-.search button img {
+.search button .icon {
     width: 20px;
 }
 
-.winfo .icon {
+.winfo .icon .winfo-icon {
     margin-top: 20px;
     width: 170px;
 }
 
 .winfo h1 {
-    font-size: 70px;
+    font-size: 2rem;
     font-weight: 500;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 
 .winfo h2 {
-    font-size: 40px;
-    font-weight: 400;
-    margin-top: 40px;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2px;
 }
 
 .details {
@@ -82,12 +82,12 @@
 .details .col {
     display: flex;
     align-items: center;
-    text-align: left;
 }
 
-.details .col img {
+.details .col .icon {
     width: 45px;
-    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .humidity 

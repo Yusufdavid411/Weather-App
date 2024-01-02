@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const Home = () => {
@@ -42,17 +43,23 @@ const Home = () => {
 
                 <div className="search">
                     <input type="search" name="" id="" placeholder='Enter City Name' onChange={e => setName(e.target.value)} />
-                    <button><img src="/img/uk_flag.jpg" alt="icon" onClick={handleClick} /></button>
+                    <button>
+                        <FontAwesomeIcon icon="search" size="4x" className="icon" onClick={handleClick} />
+                    </button>
                 </div>
 
                 <div className="winfo">
-                    <img src="/img/sunny.avif" alt="" className="icon" />
+                    <div className="winfo-icon">
+                        <FontAwesomeIcon icon="cloud" size="8x" className="icon" onClick={handleClick} />
+                    </div>
                     <h1>{Math.round(data.celcius)} °C</h1>
                     <h2>{data.name}</h2>
+
                     <div className="details">
 
                         <div className="col">
-                            <img src="/img/uk_flag.jpg" alt="" />
+                            {/* <img src="/img/uk_flag.jpg" alt="" /> */}
+                            <FontAwesomeIcon icon="fa-solid fa-wind" className="icon" />
                             <div className="humidity">
                                 <p>{Math.round(data.humidity)}%</p>
                                 <p>Humidity</p>
@@ -60,7 +67,7 @@ const Home = () => {
                         </div>
 
                         <div className="col">
-                            <img src="/img/uk_flag.jpg" alt="" />
+                            <FontAwesomeIcon icon="fa-solid fa-wind" className="icon" />
                             <div className="wind">
                                 <p>{Math.round(data.speed)} km/h</p>
                                 <p>Wind</p>
