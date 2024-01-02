@@ -11,6 +11,7 @@ const Home = () => {
         name:'London',
         humidity: 10,
         speed: 2,
+        image: '',
     })
 
     const [name, setName] = useState('');
@@ -29,7 +30,43 @@ const Home = () => {
             const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=aa0f20eeffe7d0bf570105ca31f6697e&units=metric`;
             axios.get(apiUrl)
             .then(res => {
-                setData({...data, celcius: res.data.main.temp, name: res.data.name, humidity: res.data.main.humidity, speed: res.data.wind.speed })
+                let imagePath = "";
+
+                // if(res.data.weather[0].main == "Clouds") {
+                //     imagepath = "/img/rainny.avif."
+                // } else if (res.data.weather[0].main == "Clear") {
+                //     imagepath = "/img/rainny.avif."
+                // } else if (res.data.weather[0].main == "Rain") {
+                //     imagepath = "/img/rainny.avif."
+                // } else if (res.data.weather[0].main == "Drizzle") {
+                //     imagepath = "/img/rainny.avif."
+                // } else if (res.data.weather[0].main == "Mist") {
+                //     imagepath = "/img/rainny.avif."
+                // } else {
+                //     imagepath = "/img/rainny.avif."
+                // }
+
+                if(res.data.weather[0].main == "Clouds") {
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                } else if (res.data.weather[0].main == "Clear") {
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                } else if (res.data.weather[0].main == "Rain") {
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                } else if (res.data.weather[0].main == "Drizzle") {
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                } else if (res.data.weather[0].main == "Mist") {
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                } else {
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                }
+
+                setData({...data, 
+                    celcius: res.data.main.temp, 
+                    image: imagePath, 
+                    name: res.data.name, 
+                    humidity: res.data.main.humidity, 
+                    speed: res.data.wind.speed 
+                })
             })
             .catch( err => console.log(err));
         }else {
@@ -50,7 +87,7 @@ const Home = () => {
 
                 <div className="winfo">
                     <div className="winfo-icon">
-                        <FontAwesomeIcon icon="cloud" size="8x" className="icon" onClick={handleClick} />
+                        {data.image}
                     </div>
                     <h1>{Math.round(data.celcius)} °C</h1>
                     <h2>{data.name}</h2>
@@ -59,7 +96,7 @@ const Home = () => {
 
                         <div className="col">
                             {/* <img src="/img/uk_flag.jpg" alt="" /> */}
-                            <FontAwesomeIcon icon="fa-solid fa-wind" className="icon" />
+                            <FontAwesomeIcon icon="fa-sharp fa-water" rotation={180} className="icon" />
                             <div className="humidity">
                                 <p>{Math.round(data.humidity)}%</p>
                                 <p>Humidity</p>

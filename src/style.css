@@ -54,9 +54,8 @@
     width: 20px;
 }
 
-.winfo .icon .winfo-icon {
-    margin-top: 20px;
-    width: 170px;
+.winfo-icon {
+    margin: 35px auto;
 }
 
 .winfo h1 {
@@ -82,15 +81,22 @@
 .details .col {
     display: flex;
     align-items: center;
+    text-align: left;
 }
 
 .details .col .icon {
-    width: 45px;
     justify-content: center;
     align-items: center;
+    margin: 2px;
 }
 
-.humidity 
+.col .humidity {
+    padding: 5px;
+}
+
+.col .wind {
+    padding: 5px;
+}
 
 
 @media (max-width:450px) {
