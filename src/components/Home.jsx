@@ -8,10 +8,10 @@ const Home = () => {
 
     const [data, setData] = useState({
         celcius: 10,
-        name:'London',
+        name:'City Name',
         humidity: 10,
         speed: 2,
-        image: '',
+        image: <FontAwesomeIcon icon="cloud" size="8x" className="icon" />,
     })
 
     const [name, setName] = useState('');
@@ -47,11 +47,11 @@ const Home = () => {
                 // }
 
                 if(res.data.weather[0].main == "Clouds") {
-                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" style={{ color: 'white' }}  className="icon" />;
                 } else if (res.data.weather[0].main == "Clear") {
                     imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
                 } else if (res.data.weather[0].main == "Rain") {
-                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" style={{ color: 'black' }} className="icon" />;
                 } else if (res.data.weather[0].main == "Drizzle") {
                     imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
                 } else if (res.data.weather[0].main == "Mist") {
