@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudSun, faCloudShowersWater, faCloudBolt, faCloud } from '@fortawesome/free-solid-svg-icons';
+
 
 
 const Home = () => {
@@ -15,6 +17,8 @@ const Home = () => {
     })
 
     const [name, setName] = useState('');
+    const [error, setError] = useState('');
+
 
     // useEffect(()=> {
     //     const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=ghana&appid=aa0f20eeffe7d0bf570105ca31f6697e&units=metric';
@@ -47,15 +51,15 @@ const Home = () => {
                 // }
 
                 if(res.data.weather[0].main == "Clouds") {
-                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" style={{ color: 'white' }}  className="icon" />;
+                    imagePath = <FontAwesomeIcon icon={faCloud} size="8x" style={{ color: 'white' }}  className="icon" />;
                 } else if (res.data.weather[0].main == "Clear") {
-                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon={faCloudSun} size="8x" className="icon" />;
                 } else if (res.data.weather[0].main == "Rain") {
-                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" style={{ color: 'black' }} className="icon" />;
+                    imagePath = <FontAwesomeIcon icon="fa-solid fa-cloud-rain" size="8x" style={{ color: 'black' }} className="icon" />;
                 } else if (res.data.weather[0].main == "Drizzle") {
-                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon={faCloudShowersWater} size="8x" className="icon" />;
                 } else if (res.data.weather[0].main == "Mist") {
-                    imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
+                    imagePath = <FontAwesomeIcon icon={faCloudBolt} size="8x" className="icon" />;
                 } else {
                     imagePath = <FontAwesomeIcon icon="cloud" size="8x" className="icon" />;
                 }
@@ -67,8 +71,18 @@ const Home = () => {
                     humidity: res.data.main.humidity, 
                     speed: res.data.wind.speed 
                 })
+                setError('')
+
+                // console.log(data)
             })
-            .catch( err => console.log(err));
+            .catch( err => {
+                if(err.response.status == 404) {
+                    setError("Invalid City Name")
+                } else {
+                    setError('')
+                }
+                console.log(err)
+            });
         }else {
             alert('empty search')
         }
@@ -77,6 +91,10 @@ const Home = () => {
     return (
         <div className='container'>
             <div className="weather">
+
+                <div className="error">
+                    <p>{error}</p>
+                </div>
 
                 <div className="search">
                     <input type="search" name="" id="" placeholder='Enter City Name' onChange={e => setName(e.target.value)} />
