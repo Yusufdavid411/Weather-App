@@ -106,9 +106,9 @@ const Home = () => {
             <div className="weather">
 
                 <div className="search">
-                    <input type="search" name="" id="" placeholder='Enter City Name' onChange={e => setName(e.target.value)} />
-                    <button>
-                        <FontAwesomeIcon icon="search" size="4x" className="icon" onClick={handleClick} />
+                    <input type="search" name="" id="" placeholder='Enter City Name' onChange={e => setName(e.target.value.trim())} />
+                    <button onClick={handleClick}>
+                        <FontAwesomeIcon icon="search" size="4x" className="icon"  />
                     </button>
                 </div>
 
