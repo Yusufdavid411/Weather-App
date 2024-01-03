@@ -83,13 +83,27 @@ const Home = () => {
                 }
                 console.log(err)
             });
-        }else {
-            alert('empty search')
+        } else {
+            setError("Input City Name")
         }
     }
 
     return (
         <div className='container'>
+
+            <div className="header">
+                <h1>Weather App</h1>
+            </div>
+
+            <hr />
+
+            {/* <div className="note">
+                <p>This app allows it users to manually search for weather information in different locations(Cities)</p>
+                <p>Type in the name of the city in the input field and click enter </p>
+            </div>
+
+            <hr /> */}
+
             <div className="weather">
 
                 <div className="error">
