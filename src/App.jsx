@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast"
 import Home from "./components/Home"
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
 
       <div>
+        <Toaster />
         <Home />
       </div>
 

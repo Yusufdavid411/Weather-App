@@ -3,8 +3,7 @@ import { useState } from "react";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun, faCloudShowersWater, faCloudBolt, faCloud } from '@fortawesome/free-solid-svg-icons';
-
-
+import toast from 'react-hot-toast';
 
 const Home = () => {
 
@@ -17,7 +16,6 @@ const Home = () => {
     })
 
     const [name, setName] = useState('');
-    const [error, setError] = useState('');
 
 
     // useEffect(()=> {
@@ -69,22 +67,23 @@ const Home = () => {
                     image: imagePath, 
                     name: res.data.name, 
                     humidity: res.data.main.humidity, 
-                    speed: res.data.wind.speed 
-                })
-                setError('')
+                 })
+
+                toast.success(`You Searched For ${name}`)
+
 
                 // console.log(data)
             })
             .catch( err => {
                 if(err.response.status == 404) {
-                    setError("Invalid City Name")
+                    toast.error("Invalid City Name")
                 } else {
-                    setError('')
+                    toast.success('Great!')
                 }
                 console.log(err)
             });
         } else {
-            setError("Input City Name")
+            toast.error("Input City Name");
         }
     }
 
@@ -100,15 +99,11 @@ const Home = () => {
             {/* <div className="note">
                 <p>This app allows it users to manually search for weather information in different locations(Cities)</p>
                 <p>Type in the name of the city in the input field and click enter </p>
-            </div>
+            </div> 
 
-            <hr /> */}
+            <hr />*/}
 
             <div className="weather">
-
-                <div className="error">
-                    <p>{error}</p>
-                </div>
 
                 <div className="search">
                     <input type="search" name="" id="" placeholder='Enter City Name' onChange={e => setName(e.target.value)} />
