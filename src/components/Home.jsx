@@ -78,14 +78,19 @@ const Home = () => {
                 if(err.response.status == 404) {
                     toast.error("Invalid City Name")
                 } else {
-                    toast.success('Great!')
+                    toast.error("input is empty")
+                    console.log(err)
                 }
-                console.log(err)
             });
         } else {
             toast.error("Input City Name");
         }
     }
+
+    const handleChange = (event) => {
+        setName(event.target.value.trim());
+      };
+     
 
     return (
         <div className='container'>
@@ -98,18 +103,24 @@ const Home = () => {
 
             {/* <div className="note">
                 <p>This app allows it users to manually search for weather information in different locations(Cities)</p>
-                <p>Type in the name of the city in the input field and click enter </p>
+                <p>Type in the name of the city in the input 
+                field and click enter </p>
             </div> 
 
             <hr />*/}
 
             <div className="weather">
 
-                <div className="search">
-                    <input type="search" name="" id="" placeholder='Enter City Name' onChange={e => setName(e.target.value.trim())} />
-                    <button onClick={handleClick}>
-                        <FontAwesomeIcon icon="search" size="4x" className="icon"  />
-                    </button>
+                <div className='search'>
+                    <input
+                        type="text"
+                        onChange={handleChange}
+                        placeholder="Type a city"
+                    />
+
+                        <button onClick={handleClick}>
+                            <FontAwesomeIcon icon="search" size="4x" className="icon"  />
+                        </button>
                 </div>
 
                 <div className="winfo">
@@ -130,7 +141,7 @@ const Home = () => {
                             </div> 
                         </div>
 
-                        <div className="col">
+                        <div className="col"> 
                             <FontAwesomeIcon icon="fa-solid fa-wind" className="icon" />
                             <div className="wind">
                                 <p>{Math.round(data.speed)} km/h</p>
