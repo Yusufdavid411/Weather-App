@@ -4,7 +4,7 @@
 }
 .container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     padding-top: 50px;
     background: rgb(35, 35, 60);
 }
@@ -133,6 +133,24 @@ hr {
 p {
     cursor: pointer;
 }
+
+footer {
+    padding: 5px 20px 20px;
+    color: whitesmoke;
+    max-width: 230px;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .icon {
+    border-radius: 50%;
+    color: whitesmoke;
+    background-color: rgb(166, 160, 160);
+    padding: 10px;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
 
 
 @media (max-width:450px) {

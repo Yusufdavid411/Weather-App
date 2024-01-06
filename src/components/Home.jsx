@@ -12,7 +12,7 @@ const Home = () => {
         name:'City Name',
         humidity: 10,
         speed: 2,
-        image: <FontAwesomeIcon icon="cloud" size="8x" color="lightgray" className="icon" />,
+        image: <FontAwesomeIcon icon={faCloudShowersWater} size="8x" color="lightgray" className="icon" />,
     })
 
     const [name, setName] = useState('');
@@ -74,6 +74,7 @@ const Home = () => {
 
                 // console.log(data)
             })
+
             .catch( err => {
                 if(err.response.status == 404) {
                     toast.error("Invalid City Name")
@@ -82,6 +83,7 @@ const Home = () => {
                     console.log(err)
                 }
             });
+
         } else {
             toast.error("Input City Name");
         }
@@ -89,7 +91,7 @@ const Home = () => {
 
     const handleChange = (event) => {
         setName(event.target.value.trim());
-      };
+    };
      
 
     return (
@@ -101,13 +103,14 @@ const Home = () => {
 
             <hr />
 
-            {/* <div className="note">
-                <p>This app allows it users to manually search for weather information in different locations(Cities)</p>
+            <div className="note">
+                <p>This app allows it users to manually search for weather 
+                    information from different locations(Cities)</p>
                 <p>Type in the name of the city in the input 
-                field and click enter </p>
+                field and click the search icon </p>
             </div> 
 
-            <hr />*/}
+            <hr />
 
             <div className="weather">
 
@@ -154,7 +157,18 @@ const Home = () => {
                 </div>
 
             </div>
+
+            <hr />
+
+            <footer>
+                <h4>click on the icon bellow to send me a message</h4>
+                <a href="https://wa.me/message/7FQPGPCVFWQPP1">
+                    <img src="/img/whatsapp.svg" alt="" className="icon" />
+                </a>
+            </footer>
+
         </div>
+
     );
 }
  
